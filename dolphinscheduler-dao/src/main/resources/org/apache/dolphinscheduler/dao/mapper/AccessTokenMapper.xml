@@ -23,7 +23,8 @@
         left join t_ds_user u on t.user_id = u.id
         where 1 = 1
         <if test="userName != null and userName != ''">
-            and u.user_name like concat ('%', #{userName}, '%')
+--             and u.user_name like concat ('%', #{userName}, '%')
+            and u.user_name like concat (concat('%', #{userName}), '%')
         </if>
         <if test="userId != 0">
             and t.user_id = #{userId}

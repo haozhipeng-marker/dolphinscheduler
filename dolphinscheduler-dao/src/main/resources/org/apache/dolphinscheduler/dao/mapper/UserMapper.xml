@@ -39,7 +39,8 @@
         left join t_ds_queue q on t.queue_id = q.id
         where 1=1
         <if test="userName!=null and userName != ''" >
-             and u.user_name like concat ('%', #{userName}, '%')
+--              and u.user_name like concat ('%', #{userName}, '%')
+            and u.user_name like concat (concat('%', #{userName}), '%')
         </if>
         order by u.update_time desc
     </select>
